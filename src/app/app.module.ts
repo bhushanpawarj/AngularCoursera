@@ -30,6 +30,10 @@ import { ContactComponent } from './contact/contact.component';
 import { from } from 'rxjs';
 import { LoginComponent } from './login/login.component';
 
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { FormsModule } from "@angular/forms"; 
 
 @NgModule({
   declarations: [
@@ -53,12 +57,14 @@ import { LoginComponent } from './login/login.component';
     MatCardModule,
     MatButtonModule,
     AppRoutingModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatCheckboxModule,
+    FormsModule
   ],
   providers: [DishService, PromotionService, LeaderService],
-  entryComponents: [
-    LoginComponent
-  ],
+  entryComponents: [LoginComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
