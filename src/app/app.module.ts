@@ -9,6 +9,7 @@ import { MatCardModule } from "@angular/material/card";
 import { MatButtonModule } from "@angular/material/button";
 import { MatDialogModule } from "@angular/material/dialog";
 
+import { HttpClientModule } from "@angular/common/http";
 
 import {AppRoutingModule } from './app-routing/app-routing.module';
 
@@ -27,7 +28,6 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-import { from } from 'rxjs';
 import { LoginComponent } from './login/login.component';
 
 import { MatFormFieldModule } from "@angular/material/form-field";
@@ -41,6 +41,7 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatSliderModule } from "@angular/material";
 
 import { ReactiveFormsModule } from '@angular/forms';
+import { baseURL } from "./shared/baseurl";
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,9 +73,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatProgressSpinnerModule,
     MatSliderModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [DishService, PromotionService, LeaderService],
+  providers: [DishService, PromotionService, LeaderService, { provide: 'baseURL', useValue: baseURL }],
   entryComponents: [LoginComponent],
   bootstrap: [AppComponent]
 })
