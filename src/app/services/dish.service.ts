@@ -3,19 +3,19 @@ import { Dish } from "../shared/dish";
 import { DISHES } from "../shared/dishes";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class DishService {
-  
-  getDishes(): Dish[] {
-    return DISHES;
-  } 
-  getDish(id: string): Dish {
-    return DISHES.filter((dish) => (dish.id === id))[0];
+  getDishes(): Promise<Dish[]> {
+    return Promise.resolve(DISHES);
   }
 
-  getFeaturedDish(): Dish {
-    return DISHES.filter((dish) => dish.featured)[0];
+  getDish(id: number): Promise<Dish> {
+    return Promise.resolve(DISHES.filter(dish => dish.id === id+"")[0]);
   }
-   constructor() { }
+
+  getFeaturedDish(): Promise<Dish> {
+    return Promise.resolve(DISHES.filter(dish => dish.featured)[0]);
+  }
+  constructor() {}
 }
