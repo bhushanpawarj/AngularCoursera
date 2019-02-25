@@ -11,7 +11,7 @@ import { ProcessHTTPMsgService } from "./process-httpmsg.service";
 })
 export class LeaderService {
   getLeaders(): Observable<Leader[]> {
-    return this.http.get<Leader[]>(baseURL + "/leadership")
+    return this.http.get<Leader[]>(baseURL + "leadership")
     .pipe(catchError(this.processHTTPMsgService.handleError));
   }
   getFeaturedLeader(): Observable<Leader> {
